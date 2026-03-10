@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-# Smart File Organizer
-
-=======
 # Smart-File-Organizer
->>>>>>> 24a06a07b6eac646372c8b138eecc194c27e2962
+
 A Python automation tool that organizes files based on file type and detects duplicate files.
 
 ## Features
