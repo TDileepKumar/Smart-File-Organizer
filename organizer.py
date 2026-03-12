@@ -1,36 +1,74 @@
 import os
+import argparse
+import logging
+import shutil
 from utils import get_category, move_file, get_file_hash
 
-path = input("Enter folder path to organize: ")
+logging.basicConfig(
+    filename="organizer.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
-if not os.path.exists(path):
-    print("Invalid path")
-    exit()
+def organize_files(path):
 
-files = os.listdir(path)
+    if not os.path.exists(path):
+        print("Invalid path")
+        return
 
-hashes = {}
+    files = os.listdir(path)
+    hashes = {}
 
-for file in files:
+    duplicate_folder = os.path.join(path, "duplicates")
 
-    file_path = os.path.join(path, file)
+    if not os.path.exists(duplicate_folder):
+        os.makedirs(duplicate_folder)
 
-    if os.path.isfile(file_path):
+    for file in files:
 
-        file_hash = get_file_hash(file_path)
+        file_path = os.path.join(path, file)
 
-        if file_hash in hashes:
-            print(f"Duplicate file found: {file}")
-            continue
+        if os.path.isfile(file_path):
 
-        hashes[file_hash] = file
+            file_hash = get_file_hash(file_path)
 
-        filename, extension = os.path.splitext(file)
+            if file_hash in hashes:
+                print(f"Duplicate file found: {file}")
+                logging.warning(f"Duplicate file detected: {file}")
 
-        category = get_category(extension)
+                duplicate_destination = os.path.join(duplicate_folder, file)
+                shutil.move(file_path, duplicate_destination)
+                continue
 
-        destination = os.path.join(path, category)
+            hashes[file_hash] = file
 
-        move_file(file_path, destination)
+            filename, extension = os.path.splitext(file)
 
-print("Files organized successfully.")
+            category = get_category(extension)
+            destination = os.path.join(path, category)
+
+            logging.info(f"Moving {file} to {category}")
+
+            move_file(file_path, destination)
+
+    print("Files organized successfully.")
+
+
+def main():
+
+    parser = argparse.ArgumentParser(description="Smart File Organizer")
+
+    parser.add_argument(
+        "--path",
+        type=str,
+        required=True,
+        help="Folder path to organize"
+    )
+
+    args = parser.parse_args()
+
+    organize_files(args.path)
+
+
+if __name__ == "__main__":
+    main()
