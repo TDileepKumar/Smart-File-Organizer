@@ -16,11 +16,6 @@ A Python automation tool that organizes files based on file type and detects dup
 - hashlib
 - shutil
 
-## How to Run
-
-```bash
-python organizer.py --path "Folder_location"
-
 ## Project Structure
 
 Smart-File-Organizer/
@@ -65,3 +60,8 @@ Downloads/
         report.pdf
     Code/
         script.py
+
+## How to Run
+
+```bash
+python organizer.py --path "Folder_location"
