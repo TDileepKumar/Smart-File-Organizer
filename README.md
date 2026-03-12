@@ -1,6 +1,6 @@
 # Smart-File-Organizer
 
-A Python automation tool that organizes files based on file type and detects duplicate files.
+A Python automation tool that organizes files in a folder based on file type and detects duplicate files using file hashing.
 
 ## Features
 
@@ -9,59 +9,86 @@ A Python automation tool that organizes files based on file type and detects dup
 - Duplicate file detection
 - File organization automation
 
-## Technologies
+## Technologies Used
 
 - Python
-- OS module
+- os module
 - hashlib
 - shutil
+- argparse
+- logging
 
 ## Project Structure
 
-Smart-File-Organizer/
-│
-├── organizer.py        # Main script
-├── utils.py            # Helper functions
-├── config.py           # File type categories
-├── README.md
-├── requirements.txt
-└── .gitignore
+	Smart-File-Organizer/
+	│
+	├── organizer.py       # Main program
+	├── utils.py           # Helper functions
+	├── config.py          # File category configuration
+	├── README.md
+	├── requirements.txt
+	└── .gitignore
 
-## Architecture
+## Installation
 
-Input Folder
-     │
-     ▼
-organizer.py
-     │
-     ├── utils.get_file_hash()
-     ├── utils.get_category()
-     └── utils.move_file()
-     │
-     ▼
-Categorized Folders
-(Images / Documents / Code / Others)
+Clone the repository
+
+	git clone https://github.com/TDileepKumar/Smart-File-Organizer.git
+
+Navigate to the folder
+
+	cd Smart-File-Organizer
+
+## Usage
+
+Run the script using:
+
+	python organizer.py --path "Folder_Location"
+
+#### Example:
+
+	python organizer.py --path "C:\Users\User\Downloads"
 
 ## Example
 
-Before:
+Before Organizing:
 
-Downloads/
-    photo.jpg
-    report.pdf
-    script.py
+	Downloads/
+		photo.jpg	
+		report.pdf	
+		script.py
 
-After running:
+After Organizing:
 
-Downloads/
-    Images/
-        photo.jpg
-    Documents/
-        report.pdf
-    Code/
-        script.py
+	Downloads/
+		Images/    
+			photo.jpg	   
+		Documents/    
+			report.pdf	   
+		Code/    
+			script.py
 
-## How to Run
+## Architecture
 
-```bash
-python organizer.py --path "Folder_location"
+	Input Folder
+		│	
+		▼
+	organizer.py
+		│
+		├── utils.get_file_hash()
+		├── utils.get_category()
+		└── utils.move_file()
+		│
+		▼
+	Categorized Folders
+	(Images / Documents / Code / Others)
+
+
+## Demo
+Before Organizing:
+
+![Before](Screenshots/Before.png)
+
+After Organizing:
+
+![After](Screenshots/After.png)
