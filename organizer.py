@@ -11,7 +11,6 @@ logging.basicConfig(
 )
 
 def organize_files(path):
-
     if not os.path.exists(path):
         print("Invalid path")
         return
@@ -25,11 +24,9 @@ def organize_files(path):
         os.makedirs(duplicate_folder)
 
     for file in files:
-
         file_path = os.path.join(path, file)
 
         if os.path.isfile(file_path):
-
             file_hash = get_file_hash(file_path)
 
             if file_hash in hashes:
@@ -48,7 +45,6 @@ def organize_files(path):
             destination = os.path.join(path, category)
 
             logging.info(f"Moving {file} to {category}")
-
             move_file(file_path, destination)
 
     print("Files organized successfully.")
@@ -81,7 +77,6 @@ def organize_folder(path, logger=None, progress_callback=None):
             progress_callback(processed, total_files)
 
 def main():
-
     parser = argparse.ArgumentParser(description="Smart File Organizer")
 
     parser.add_argument(
@@ -94,7 +89,6 @@ def main():
     args = parser.parse_args()
 
     organize_files(args.path)
-
 
 if __name__ == "__main__":
     main()
