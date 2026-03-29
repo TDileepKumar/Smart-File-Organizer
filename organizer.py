@@ -3,12 +3,14 @@ import argparse
 import logging
 import shutil
 from utils import get_category, move_file, get_file_hash
+from undo_manager import record_move
 
 logging.basicConfig(
     filename="organizer.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+
 
 def organize_files(path):
     if not os.path.exists(path):
@@ -49,6 +51,7 @@ def organize_files(path):
 
     print("Files organized successfully.")
 
+
 def organize_folder(path, logger=None, progress_callback=None):
     if not os.path.exists(path):
         return
@@ -66,7 +69,8 @@ def organize_folder(path, logger=None, progress_callback=None):
             category = get_category(extension)
             destination = os.path.join(path, category)
 
-            move_file(file_path, destination)
+            new_path = move_file(file_path, destination)
+            record_move(file_path, new_path)
 
             if logger:
                 logger(f"Moved {file} → {category}")
@@ -75,6 +79,7 @@ def organize_folder(path, logger=None, progress_callback=None):
 
         if progress_callback:
             progress_callback(processed, total_files)
+
 
 def main():
     parser = argparse.ArgumentParser(description="Smart File Organizer")
@@ -89,6 +94,7 @@ def main():
     args = parser.parse_args()
 
     organize_files(args.path)
+
 
 if __name__ == "__main__":
     main()

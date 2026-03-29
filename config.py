@@ -1,7 +1,7 @@
 FILE_TYPES = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp"],
-    "Documents": [".pdf", ".docx", ".txt", ".pptx"],
-    "Code": [".py", ".java", ".cpp", ".js", ".html", ".css"],
-    "Archives": [".zip", ".rar", ".tar"],
-    "Videos": [".mp4", ".mkv", ".avi"]
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"],
+    "Documents": [".pdf", ".docx", ".txt", ".xlsx", ".pptx", ".csv"],
+    "Videos": [".mp4", ".mkv", ".avi", ".mov"],
+    "Audio": [".mp3", ".wav"],
+    "Code": [".py", ".java", ".cpp", ".js", ".html", ".css", ".c"]
 }
