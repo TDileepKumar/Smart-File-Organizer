@@ -1,7 +1,9 @@
 # Smart-File-Organizer
 
 A Python-based file management tool that automatically organizes files into categories based on file type.  
-It includes both a **Command Line Interface (CLI)** and a **Graphical User Interface (GUI)** with progress tracking, logging, and undo functionality.
+The system provides both a **Command Line Interface (CLI)** and a **Graphical User Interface (GUI)** with features like progress tracking, logging, and undo functionality.
+
+---
 
 ## Features
 
@@ -13,6 +15,8 @@ It includes both a **Command Line Interface (CLI)** and a **Graphical User Inter
 - Undo functionality to restore original file locations
 - Automatic cleanup of empty folders after undo
 - Command-line interface support
+
+---
   
 ## Technologies Used
 
@@ -24,28 +28,39 @@ It includes both a **Command Line Interface (CLI)** and a **Graphical User Inter
 - logging
 - Tkinter
 
+---
+
 ## Project Structure
 
 	Smart-File-Organizer/
 	│
-	├── config.py           # Main program
-	├── utils.py            # Helper functions
+	├── config.py           # File type category definition
+	├── utils.py            # Helper functions(Move, Hash, Category)
 	├── organizer.py        # Core logic
-	├── undo_manager.py     # File category configuration
+	├── undo_manager.py     # Undo system logic
 	├── gui.py              # GUI interface
 	├── main.py             # Entry point for GUI
-	├── history.json        # Stores move history
 	├── requirements.txt
 	├── README.md
 	├── Screenshots/
 	└── .gitignore
 
+---
+
+## Requirements
+
+- Python 3.8 or higher
+
+---
+
 ## Installation
 
-Clone the repository
+Clone the repository and navigate to the project folder:
 
 	git clone https://github.com/TDileepKumar/Smart-File-Organizer.git
 	cd Smart-File-Organizer
+
+---
 
 ## Usage
 
@@ -70,6 +85,8 @@ Run the following command:
 
 	python organizer.py --path "C:\Users\User\Downloads"
 
+---
+
 ## Example
 
 Before Organizing:
@@ -89,6 +106,8 @@ After Organizing:
 		Code/    
 			script.py
 
+---
+
 ## Architecture
 
 	Input Folder
@@ -104,11 +123,15 @@ After Organizing:
 	Categorized Folders
 	(Images / Documents / Code / Others)
 
+---
 
 ## Demo
 Before Organizing:
 
 ![Before](Screenshots/Before.png)
+
+GUI Interface:
+![GUI Interface](Screenshots/GUI Interface.png)
 
 After Organizing:
 
