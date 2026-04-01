@@ -137,3 +137,9 @@ GUI Interface:
 After Organizing:
 
 ![After](Screenshots/After.png)
+
+---
+
+## LICENCE
+
+This project is licensed under the MIT License.
