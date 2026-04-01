@@ -131,7 +131,8 @@ Before Organizing:
 ![Before](Screenshots/Before.png)
 
 GUI Interface:
-![GUI Interface](Screenshots/GUI Interface.png)
+
+![GUI Interface](Screenshots/GUI_Interface.png)
 
 After Organizing:
 
